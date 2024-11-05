@@ -50,9 +50,14 @@ export function Game() {
           <div
             key={choice.name}
             onClick={() => handlePlayerChoice(choice)}
-            className={`flex rounded-full w-60 h-60 ${choice.color} justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] cursor-pointer transform transition-transform hover:scale-105`}
+            className={`flex rounded-full w-60 h-60 ${choice.name === 'rock' ? 'bg-sky-400' :
+                choice.name === 'paper' ? 'bg-teal-400' :
+                'bg-fuchsia-400'
+            } justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] cursor-pointer transform transition-transform hover:scale-105`}
           >
-            <div className={`flex rounded-full justify-center items-center w-40 h-40 bg-gradient-to-br ${choice.gradient}`}>
+            <div className={`flex rounded-full justify-center items-center w-40 h-40 bg-gradient-to-br ${choice.name === 'rock' ? 'from-sky-400 to-sky-500' :
+                choice.name === 'paper' ? 'from-teal-400 to-teal-500' :
+                'from-fuchsia-400 to-fuchsia-500'}`}>
               <FontAwesomeIcon icon={choice.icon} color="white" size="3x" />
             </div>
           </div>
